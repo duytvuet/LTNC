@@ -1,40 +1,43 @@
 //
 //  main.cpp
-//  chess
+//  fs
 //
-//  Created by Duy Trần on 3/6/21.
+//  Created by Duy Trần o(n 3/6/21.
 //
 
-#include <iostream>
-#include <cmath>
-
+#include<iostream>
 using namespace std;
-
-void nhap_mang(int *a, int *b, int n)
-{
-    for (int i = 0; i < n; i++) {
-        cin >> a[i] >> b[i];
+int n, a[10];                                                                                                              
+bool check = false;
+void printArray(){
+    for (int i = 1; i <= n; i++){
+        cout << a[i];
+    }
+    cout << endl;
+}
+void gen(){
+    int i = n;
+    while (a[i]==1 && i > 0){
+        i--;
+    }
+    if (i == 0) check = true;
+    else
+    {
+        a[i] = 1;
+        for (int j = i + 1; j <= n; j++){
+            a[j] = 0;
+        }
     }
 }
-bool test(int *a, int *b, int n)
-{
-    for (int i = 0; i < n; i++) {
-        for (int j = i+1; j < n; j++) {
-            if (a[i]== a[j] || b[i] == b[j] ||abs(a[i]-a[j]) == abs(b[i]-b[j])) {
-                return true;
-            }
-        }
-    } return false;
-}
-int main()
-{
-    int n;
+int main(){
+                                                                                                                           
     cin >> n;
-    int *arr1 = new int [n];
-    int *arr2 = new int [n];
-    nhap_mang(arr1, arr2, n);
-    if(test(arr1, arr2, n) == true) cout << "yes";
-    else cout << "no";
+    for (int i = 1; i <= n; i++){
+        a[i] = 0;
+    }
+    while (check == false){
+        printArray();       
+        gen();
+    }
     return 0;
 }
-

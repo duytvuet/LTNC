@@ -1,43 +1,24 @@
 //
 //  main.cpp
-//  fs
+//  hoanvixau
 //
-//  Created by Duy Trần o(n 3/6/21.
+//  Created by Duy Trần on 3/11/21.
 //
 
-#include<iostream>
+#include <iostream>
+#include <algorithm>
+
 using namespace std;
-int n, a[10];                                                                                                              
-bool check = false;
-void printArray(){
-    for (int i = 1; i <= n; i++){
-        cout << a[i];
-    }
-    cout << endl;
-}
-void gen(){
-    int i = n;
-    while (a[i]==1 && i > 0){
-        i--;
-    }
-    if (i == 0) check = true;
-    else
-    {
-        a[i] = 1;
-        for (int j = i + 1; j <= n; j++){
-            a[j] = 0;
-        }
-    }
-}
-int main(){
-                                                                                                                           
-    cin >> n;
-    for (int i = 1; i <= n; i++){
-        a[i] = 0;
-    }
-    while (check == false){
-        printArray();       
-        gen();
-    }
-    return 0;
+
+int main()
+{
+    char s[10];
+    cin >> s;
+    sort(s, s+3);
+    do{
+        cout << s[0] << s[1] << s[2] << endl;
+        
+    } while(next_permutation(s, s+3));
+        
+            return 0;
 }
